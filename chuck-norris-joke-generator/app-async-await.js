@@ -8,10 +8,9 @@ btn.addEventListener('click', function () {
 });
 
 async function getChuckNorrisJoke(url) {
-  await fetch(url)
-    .then((res) => res.json())
-    .then((data) => displayData(data))
-    .catch((err) => console.log(err));
+  const res = await fetch(url);
+  const data = await res.json();
+  displayData(data);
 }
 
 function displayData({ value: joke }) {
