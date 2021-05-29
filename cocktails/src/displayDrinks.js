@@ -6,6 +6,7 @@ const displayDrinks = async (section, title, drinks) => {
   }
 
   section.innerHTML = '';
+  title.textContent = '';
 
   drinks.forEach((drink) => {
     section.innerHTML += `<a href="drink.html">
