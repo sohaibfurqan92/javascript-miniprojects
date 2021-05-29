@@ -10,7 +10,7 @@ const displayDrinks = async (section, title, drinks) => {
 
   drinks.forEach((drink) => {
     section.innerHTML += `<a href="drink.html">
-          <article class="cocktail" data-id="1">
+          <article class="cocktail" data-id="${drink.idDrink}">
             <img src="${drink.strDrinkThumb}" alt="cocktail" />
             <h3>${drink.strDrink}</h3>
           </article>
