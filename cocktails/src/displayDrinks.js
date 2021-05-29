@@ -1,3 +1,5 @@
+import setDrink from './setDrink.js';
+
 const displayDrinks = async (section, title, drinks) => {
   if (!drinks) {
     section.innerHTML = '';
@@ -16,6 +18,10 @@ const displayDrinks = async (section, title, drinks) => {
           </article>
         </a>`;
   });
+
+  if (section) {
+    setDrink(section);
+  }
 };
 
 export default displayDrinks;
