@@ -14,9 +14,18 @@ const showDrinks = async (url = defaultURL) => {
   const data = await fetchDrinks(url);
   const { drinks } = data;
 
+  if (drinks !== null) {
+    hideLoading();
+  }
+
   //display drinks
 
   displayDrinks(section, title, drinks);
+};
+
+const hideLoading = () => {
+  const loading = getElement('.loading');
+  loading.classList.add('hide-loading');
 };
 
 export default showDrinks;
