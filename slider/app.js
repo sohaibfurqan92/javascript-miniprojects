@@ -32,3 +32,41 @@ people.forEach((person, slideIndex) => {
           </div>
         </article>`;
 });
+
+// switch slides
+
+const startSlider = (type) => {
+  const active = document.querySelector('.active');
+  const last = document.querySelector('.last');
+  let next = active.nextElementSibling || container.firstElementChild;
+
+  active.classList.remove(['active']);
+  last.classList.remove(['last']);
+  next.classList.remove(['next']);
+
+  if (type === 'prev') {
+    active.classList.add('next');
+    last.classList.add('active');
+    next = last.previousElementSibling;
+
+    if (!next) {
+      next = container.lastElementChild;
+    }
+
+    next.classList.remove(['next']);
+    next.classList.add('last');
+    return;
+  }
+
+  active.classList.add('last');
+  next.classList.add('active');
+  last.classList.add('next');
+};
+
+nextBtn.addEventListener('click', function () {
+  startSlider();
+});
+
+prevBtn.addEventListener('click', function () {
+  startSlider('prev');
+});
