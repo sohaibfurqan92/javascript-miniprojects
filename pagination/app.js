@@ -4,12 +4,15 @@ import paginate from './paginate.js';
 import displayButtons from './displayButtons.js';
 
 const heading = document.querySelector('h1');
+const btnContainer = document.querySelector('.btn-container');
+let pages = [];
 window.addEventListener('load', init);
 
 async function init() {
+  const index = 0;
   const followers = await fetchFollowers();
-  if (followers) {
-    heading.textContent = 'pagination';
-  }
-  displayFollowers(followers);
+  heading.textContent = 'Pagination';
+  pages = paginate(followers);
+  displayFollowers(pages[index]);
+  displayButtons(btnContainer, pages, index);
 }
